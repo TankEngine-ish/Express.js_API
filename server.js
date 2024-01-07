@@ -20,8 +20,6 @@ app.get('/items', (req, res) => {
     res.json(items);  
 })
 
-
-
 app.get('/items/:itemId', (req, res) => {
     const itemId = Number(req.params.itemId);
     const item = items[itemId];
