@@ -1,5 +1,9 @@
 const express = require ('express');
 
+const itemsController = require ('./controllers/items.controller');
+const messagesController = require ('./controllers/messages.controller')
+
+
 const app = express();
 
 const PORT = 3000;
@@ -34,20 +38,7 @@ app.use(express.json());
 // routers below...
 
 
-app.post('/items', (req, res) => {
-    if (!req.body.name) {
-     return res.status(400).json({
-        error:"Missing item name!"
-    })
-    }
-    const newItem = {
-        name: req.body.name,
-        id: items.length
-    };
-    items.push(newItem);
-
-    res.json(newItem);
-});
+app.post('/items', );
 
 
 
@@ -70,9 +61,9 @@ app.get('/items/:itemId', (req, res) => {
 })
 
 
-app.get('/messages', );
+app.get('/messages', messagesController.getMessages );
 
-app.post('/messages', );
+app.post('/messages', messagesController.postMessage);
 
 // four different routers. each pairing an http method with the name of a route.
 
