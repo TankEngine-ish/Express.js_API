@@ -18,18 +18,38 @@ const items = [
 
 app.use((req, res, next) => {
     const start = Date.now();
-    next();
+        next();
     const delta = Date.now() - start;
-    console.log(`${req.method} ${req.url} ${delta}ms`);
+        console.log(`${req.method} ${req.url} ${delta}ms`);
 })
+//this timer middleware captures as much of the work as possible, hence its position in the code
+
+app.use(express.json());
 
 
+app.post('/items', (req, res) => {
+    if (!req.body.name) {
+     return res.status(400).json({
+        error:"Missing item name!"
+    })
+    }
+
+    const newItem = {
+        name: req.body.name,
+        id: items.length
+    };
+    items.push(newItem);
+
+    res.json(newItem);
+});
 
 
 
 app.get('/items', (req, res) => {
     res.json(items);  
 })
+
+
 
 app.get('/items/:itemId', (req, res) => {
     const itemId = Number(req.params.itemId);
@@ -52,7 +72,7 @@ app.post('/messages', (req, res) => {
     console.log('Updating my ass..');
 });
 
-// three different routers. each pairing an http method with the name of a route.
+// four different routers. each pairing an http method with the name of a route.
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
