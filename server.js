@@ -16,6 +16,17 @@ const items = [
 
 
 
+app.use((req, res, next) => {
+    const start = Date.now();
+    next();
+    const delta = Date.now() - start;
+    console.log(`${req.method} ${req.url} ${delta}ms`);
+})
+
+
+
+
+
 app.get('/items', (req, res) => {
     res.json(items);  
 })
@@ -42,8 +53,6 @@ app.post('/messages', (req, res) => {
 });
 
 // three different routers. each pairing an http method with the name of a route.
-
-
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
