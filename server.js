@@ -1,9 +1,6 @@
 const express = require ('express');
 
 const itemsRouter = require('./routes/items.router');
-
-
-const messagesController = require ('./controllers/messages.controller');
 const messagesRouter = require('./Routes/messages.router');
 
 const app = express();
@@ -20,16 +17,9 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-
-const itemsRouter = express.Router();
-
-
 app.use('/items', itemsRouter); 
 app.use('/messages', messagesRouter);
 //mounting the items and messages router on the app object
-
-
-
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)

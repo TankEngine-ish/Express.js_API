@@ -5,7 +5,7 @@ const messagesController = require('./controllers/messages.controller');
 const messagesRouter = express.Router();
 
 
-app.get('/', messagesController.getMessages );
+app.get('/', messagesController.getMessages);
 app.post('/', messagesController.postMessage);
 
 
