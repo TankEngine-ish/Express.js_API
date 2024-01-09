@@ -1,4 +1,5 @@
 const express = require ('express');
+const path = require('path');
 
 const itemsRouter = require('./Routes/items.router');
 const messagesRouter = require('./Routes/messages.router');
@@ -17,8 +18,10 @@ app.use((req, res, next) => {
 
 
 
-app.use(express.static('public'))
+app.use('/site', express.static(path.join(__dirname, 'public'))); //this middleware serves this path
 app.use(express.json());
+
+
 
 app.use('/items', itemsRouter); 
 app.use('/messages', messagesRouter);
