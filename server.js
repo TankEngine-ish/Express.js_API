@@ -11,10 +11,13 @@ app.use((req, res, next) => {
     const start = Date.now();
         next();
     const delta = Date.now() - start;
-        console.log(`${req.method} ${req.url} ${delta}ms`);
+        console.log(`${req.method} ${req.baseUrl}${req.url} ${delta}ms`);
 })
 //this timer middleware captures as much of the work as possible, hence its position in the code
 
+
+
+app.use(express.static('public'))
 app.use(express.json());
 
 app.use('/items', itemsRouter); 
@@ -24,20 +27,6 @@ app.use('/messages', messagesRouter);
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
