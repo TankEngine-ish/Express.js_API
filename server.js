@@ -1,6 +1,6 @@
 const express = require ('express');
 
-const itemsRouter = require('./routes/items.router');
+const itemsRouter = require('./Routes/items.router');
 const messagesRouter = require('./Routes/messages.router');
 
 const app = express();
