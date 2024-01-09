@@ -12,3 +12,26 @@ function postItem (req, res) {
 
     res.json(newItem);
 }
+
+function getItems (req, res) {
+    res.json(items);  
+}
+
+
+function getSingleItem (req, res) {
+    const itemId = Number(req.params.itemId);
+    const item = items[itemId];
+    if (item) {
+        res.status(200).json(item);
+    }else {
+        res.status(404).json({
+            error:"item doesn't exist"
+        });
+    }
+}
+
+module.exports = {
+    postItem,
+    getItems,
+    getSingleItem,
+}

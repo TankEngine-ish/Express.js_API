@@ -42,23 +42,11 @@ app.post('/items', );
 
 
 
-app.get('/items', (req, res) => {
-    res.json(items);  
-})
+app.get('/items', );
 
 
 
-app.get('/items/:itemId', (req, res) => {
-    const itemId = Number(req.params.itemId);
-    const item = items[itemId];
-    if (item) {
-        res.status(200).json(item);
-    }else {
-        res.status(404).json({
-            error:"item doesn't exist"
-        });
-    }
-})
+app.get('/items/:itemId', );
 
 
 app.get('/messages', messagesController.getMessages );
