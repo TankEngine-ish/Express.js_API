@@ -38,19 +38,12 @@ app.use(express.json());
 // routers below...
 
 
-app.post('/items', );
-
-
-
-app.get('/items', );
-
-
-
-app.get('/items/:itemId', );
+app.post('/items', itemsController.postItem);
+app.get('/items', itemsController.getItems);
+app.get('/items/:itemId', itemsController.getSingleItem);
 
 
 app.get('/messages', messagesController.getMessages );
-
 app.post('/messages', messagesController.postMessage);
 
 // four different routers. each pairing an http method with the name of a route.
