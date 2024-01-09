@@ -8,21 +8,21 @@ function postItem (req, res) {
     }
     const newItem = {
         name: req.body.name,
-        id: items.length
+        id: model.length
     };
-    items.push(newItem);
+    model.push(newItem);
 
     res.json(newItem);
 }
 
 function getItems (req, res) {
-    res.json(items);  
+    res.json(model);  
 }
 
 
 function getSingleItem (req, res) {
     const itemId = Number(req.params.itemId);
-    const item = items[itemId];
+    const item = model[itemId];
     if (item) {
         res.status(200).json(item);
     }else {
