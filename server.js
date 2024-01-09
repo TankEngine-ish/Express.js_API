@@ -1,7 +1,10 @@
 const express = require ('express');
 
-const itemsController = require ('./controllers/items.controller');
-const messagesController = require ('./controllers/messages.controller')
+const itemsRouter = require('./routes/items.router');
+
+
+const messagesController = require ('./controllers/messages.controller');
+const messagesRouter = require('./Routes/messages.router');
 
 const app = express();
 
@@ -17,23 +20,36 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+
 const itemsRouter = express.Router();
 
-itemsRouter.post('/', itemsController.postItem);
-itemsRouter.get('/', itemsController.getItems);
-itemsRouter.get('/:itemId', itemsController.getSingleItem);
 
-app.use('/items', itemsRouter); //mounting the items router on the app object
+app.use('/items', itemsRouter); 
+app.use('/messages', messagesRouter);
+//mounting the items and messages router on the app object
 
 
-app.get('/messages', messagesController.getMessages );
-app.post('/messages', messagesController.postMessage);
 
-// four different routes. each pairing an http method with the name of a route.
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // a router is like a mini application and it has its own set of middleware
 // and routes. Routers make the API more modular.
