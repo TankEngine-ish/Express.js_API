@@ -1,3 +1,5 @@
+const model = require ('../models/items.model');
+
 function postItem (req, res) {
     if (!req.body.name) {
      return res.status(400).json({
