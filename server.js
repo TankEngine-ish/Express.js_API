@@ -25,6 +25,12 @@ app.use('/site', express.static(path.join(__dirname, 'public'))); //alterantive 
 app.use(express.json());
 
 
+app.use('/', (req, res) => {
+    res.render('index',  {
+        title: 'Boilerplate HTML',
+        caption: 'Empty Mall Aesthetic',
+    });
+});
 
 app.use('/items', itemsRouter); 
 app.use('/messages', messagesRouter);
