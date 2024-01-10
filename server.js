@@ -19,13 +19,11 @@ app.use((req, res, next) => {
 })
 //this timer middleware captures as much of the work as possible, hence its position in the code
 
-
-
 app.use('/site', express.static(path.join(__dirname, 'public'))); //alterantive to this middleware for large scale projects are CDN's
 app.use(express.json());
 
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index',  {
         title: 'Boilerplate HTML',
         caption: 'Empty Mall Aesthetic',
