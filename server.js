@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 
 
-app.use('/site', express.static(path.join(__dirname, 'public'))); //this middleware serves this path
+app.use('/site', express.static(path.join(__dirname, 'public'))); //alterantive to this middleware for large scale projects are CDN's
 app.use(express.json());
 
 
