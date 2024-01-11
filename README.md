@@ -3,26 +3,36 @@ For my first RESTful API I used Node/Express, the nodemon package to save time o
 Postman to test my endpoints, Handlebars as the templating engine and some basic html and css.
 
 
-## The MVC Pattern
+## The MVC pattern
 
 The MVC design pattern is a popular choice among developers using Express for structuring their applications. In simplified terms:
 
-The controller processes the user's request and then manipulates the model accordingly.
-For example: adding or removing data from a database.
+The Controller processes the user's request and then manipulates the model accordingly.
+For example: interacting with the Model to perform operations on the data, and sending the appropriate response.
 
-The model is a representation of how the Express app sees the data.
-It can translate the data, as it lives in storage, to how the data is actually used by the application.
+The Model is a representation of how the Express application sees the data.
+It involves defining data models and handling interactions with the database.
 
-The view is how the data from the model is being presented back to the user. This is where React might step-in and take control.
+The View is how the data from the model is being presented back to the user. This is where React might step-in and take control.
 
 A simple diagram of the model:
+
+
 ![Alt text](Images/mvc-framework.png)
 
-MVC is meant to simplify our code and make it easier to read, update and improve.
+MVC is meant to simplify our code and make it easier to read, update and improve, although Express is 
+not opinionated and doesn't enforce the MVC structure.
 
 ## Testing with Postman
 
+It's worth noting that there's always a slight difference between the request time
+that shows on our log inside the terminal and the log inside Postman. The reason is that 
+it simply takes more time for the response to make it back all the way to Postman.
 
+![Alt text](<Images/Screenshot from 2024-01-09 20-14-44.png>)
 
-The slight difference between the time it takes on our log and the postman is that 
-it takes more time for the response to make it back all the way to postman.
+In the shot above I was testing whether the endpoint was serving the static image content.
+
+## REST design and principles
+
+![Alt text](<Images/Screenshot from 2024-01-11 16-42-44.png>)
